@@ -38,3 +38,32 @@ console.log( superheroes.all);
  
 // superheroes.random();
 // //=> 'Spider-Ham'
+
+// creating a local host server by naming some variables first
+
+// npm install express
+const express = require("express");
+const app = express();
+const port = 3000
+
+//request and response can also be named shortly as "req & res"
+app.get("/", function(request, response){
+    response.send("<h1>Hello Mr.Tobi!</h1>")
+});
+//To set up a new route the add the "/ - which specifies the port" followed by the route name you want to give it
+app.get("/contact", function(req, res){
+    res.send("Contact me with mail tobiogunleye76@gmail.com")
+});
+
+app.get("/about", function(req, res){
+    res.send("My name is ogunleye tobiloba timothy and i am an aspiring developer, data analyst, accountant, software tester fuiled with different ambition that will one day set me above my peers")
+});
+
+app.get("/hobbies", function(req, res){
+    res.send("<ul><li>Swimming</li><li>Basketball</li><li>Gaming</li><li>Cooking</li></ul>")
+});
+// Install "nodemon" that way you can keep making changes to your server without restarting it every time
+
+app.listen(port, function(){
+    console.log(`server started on port ${port}`)
+});
